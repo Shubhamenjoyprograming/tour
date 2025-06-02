@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiv Bhole Travels - Your Trusted Travel Partner Since 2010</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        .mobile-menu {
+            display: none;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .section {
+            padding: 80px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .about {
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .services {
+            padding: 80px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #667eea;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .fleet {
+            background: #f8f9fa;
+        }
+
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .fleet-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .fleet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .fleet-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+        }
+
+        .ertiga-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+        }
+
+        .cruiser-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+        }
+
+        .fleet-info {
+            padding: 1.5rem;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        .gallery {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .section {
+                padding: 60px 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">🚗 Shiv Bhole Travels</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#fleet">Our Fleet</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="mobile-menu">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Shiv Bhole Travels</h1>
+            <p>Your Trusted Travel Partner Since 2010 - Comfortable, Safe & Reliable Transportation Services</p>
+            <a href="#contact" class="cta-button">Book Your Journey</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="section">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>शिव भोले ट्रॅव्हल्समध्ये आपले स्वागत आहे, २०१० पासून आम्ही आपली प्रमुख वाहतूक सेवा पुरवत आहोत. श्री उमेश बारई यांच्या कुशल नेतृत्वाखाली, आम्ही एका दशकाहून अधिक काळापासून समर्पण, विश्वसनीयता आणि आरामाने ग्राहकांची सेवा करत आहोत.</p>
+                    
+                    <p>उत्कृष्टता आणि ग्राहक समाधानाप्रती आमची बांधिलकी आम्हाला प्रवास उद्योगात एक विश्वसनीय नाव बनवले आहे. तुम्हाला व्यावसायिक सहली, कौटुंबिक सुट्ट्या किंवा विशेष प्रसंगांसाठी वाहतूक हवी असली तरी, आम्ही प्रत्येक वेळी सुरळीत आणि आरामदायक प्रवासाची खात्री देतो.</p>
+                    
+                    <p>वर्षांच्या अनुभवासह आणि ग्राहकांच्या गरजांची सखोल समज असल्याने, आम्ही वेळेवर, सुरक्षितता आणि अपेक्षांपेक्षा जास्त व्यावसायिक सेवेचा अभिमान बाळगतो.</p>
+                </div>
+                <div class="highlight">
+                    <h3>१५+ वर्षांची उत्कृष्टता</h3>
+                    <p>२०१० मध्ये स्थापना</p>
+                    <h3>व्यावसायिक सेवा</h3>
+                    <p>उमेश बारई यांचे नेतृत्व</p>
+                    <h3>ग्राहक प्रथम</h3>
+                    <p>तुमचा आराम आमची प्राथमिकता</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="section">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Corporate Travel</h3>
+                    <p>Professional transportation solutions for business meetings, corporate events, and official trips with punctuality and comfort.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Family Tours</h3>
+                    <p>Safe and comfortable family vacation transportation. Create beautiful memories with our reliable travel services.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✈️</div>
+                    <h3>Airport Transfers</h3>
+                    <p>Hassle-free airport pickup and drop services. Never worry about missing your flight with our timely service.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🗺️</div>
+                    <h3>Local Sightseeing</h3>
+                    <p>Explore local attractions and tourist destinations with our knowledgeable drivers and comfortable vehicles.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚗</div>
+                    <h3>Outstation Trips</h3>
+                    <p>Long-distance travel made comfortable and safe. Perfect for weekend getaways and extended vacations.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💒</div>
+                    <h3>Special Occasions</h3>
+                    <p>Wedding transportation, religious ceremonies, and special events. Make your special day even more memorable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fleet" class="fleet">
+        <div class="section">
+            <h2 class="section-title">Our Fleet</h2>
+            <div class="fleet-grid">
+                <div class="fleet-card">
+                    <img src="./assets/image/image1_e.jpg" alt="">
+                    <div class="fleet-image ">
+             
+                    </div>
+                    <div class="fleet-info">
+                        <h3>Maruti Suzuki Ertiga</h3>
+                        <p><strong>Capacity:</strong> 7 Passengers</p>
+                        <p><strong>Features:</strong> Spacious interiors, comfortable seating, air conditioning, and excellent fuel efficiency. Perfect for family trips and group travel.</p>
+                        <p><strong>Ideal for:</strong> Family tours, airport transfers, local sightseeing</p>
+                    </div>
+                </div>
+                <div class="fleet-card">
+                    <img src="./assets/image/iamge1_c.jpg" alt="">
+                    <div class="fleet-image f">
+                       
+                    </div>
+                    <div class="fleet-info">
+                        <h3>Toyota Cruiser</h3>
+                        <p><strong>Capacity:</strong> Multiple Passengers</p>
+                        <p><strong>Features:</strong> Premium comfort, robust build quality, superior road presence, and enhanced safety features.</p>
+                        <p><strong>Ideal for:</strong> Corporate travel, outstation trips, special occasions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="section">
+            <h2 class="section-title">Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');">
+                    <div class="gallery-overlay">
+                        <h4>Professional Service</h4>
+                        <p>Experienced drivers ensuring safe journeys</p>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background-image: url('./assets/image/image1_e.jpg');">
+                    <div class="gallery-overlay">
+                        <h4>Scenic Routes</h4>
+                        <p>Beautiful destinations await your journey</p>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background-image: url('./assets/image/iamge1_c.jpg');">
+                    <div class="gallery-overlay">
+                        <h4>Comfortable Travel</h4>
+                        <p>Well-maintained vehicles for your comfort</p>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background-image: url('./assets/image/image_2_e.jpg');">
+                    <div class="gallery-overlay">
+                        <h4>Mountain Adventures</h4>
+                        <p>Explore breathtaking mountain destinations</p>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background-image: url('./assets/image/image_2_e.jpg');">
+                    <div class="gallery-overlay">
+                        <h4>Family Memories</h4>
+                        <p>Creating unforgettable family experiences</p>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background-image: url('./assets/image/image2_c.jpg');">
+                    <div class="gallery-overlay">
+                        <h4>City Tours</h4>
+                        <p>Discover urban attractions and landmarks</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="section">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">👨‍💼</div>
+                    <h3>Owner</h3>
+                    <p><strong>उमेश बारई (Umesh Barai)</strong></p>
+                    <p>Experienced professional dedicated to providing excellent service</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <h3>Call Us</h3>
+                    <p><strong><a href="tel:7350038415" style="color: white; text-decoration: none;">+91 7350 038 415</a></strong></p>
+                    <p>Available 24/7 for bookings and inquiries</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <h3>WhatsApp</h3>
+                    <p><strong><a href="https://wa.me/917350038415?text=Hello%20Shiv%20Bhole%20Travels!%20I%20would%20like%20to%20book%20a%20car%20for%20my%20travel.%20Please%20provide%20me%20with%20rates%20and%20availability." style="color: white; text-decoration: none;">+91 7350 038 415</a></strong></p>
+                    <p>Quick responses for instant bookings</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="font-size: 1.2rem; margin-bottom: 1rem;">Ready to travel with us?</p>
+                <a href="tel:7350038415" class="cta-button">Call Now to Book</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="section">
+            <p>&copy; 2024 Shiv Bhole Travels. All rights reserved. | Established 2010 | Your Trusted Travel Partner</p>
+            <p>Designed with ❤️ for comfortable and safe journeys</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/917350038415?text=Hello%20Shiv%20Bhole%20Travels!%20I%20would%20like%20to%20book%20a%20car%20for%20my%20travel.%20Please%20provide%20me%20with%20rates%20and%20availability." class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+        💬
+    </a>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(102, 126, 234, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Simple mobile menu toggle (you can expand this)
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            alert('Mobile menu - you can expand this functionality to show/hide navigation menu on mobile devices');
+        });
+
+        // Add animation when elements come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .fleet-card, .contact-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
